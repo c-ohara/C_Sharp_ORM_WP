@@ -1,0 +1,16 @@
+@model Wedding
+<h1 class = "col-6 d-inline-block align-bottom">@Model.HappyCouple's Wedding</h1>
+<a href = "/dashboard" class = "col-2">Dashboard</a>
+<a href = "dashboard/logout">Log Out</a>
+<div class = "col-10 ml-4">
+    <h3>Date: @Model.WDate.ToString("MMMM dd, yyyy")</h3>
+    @if (Model.Reservations != null){
+        <h3>Guests: </h3>
+        <ul class = "list-unstyled ml-4">
+            @foreach(RSVP res in Model.Reservations)
+            {
+                <li>@res.User.FullName</li>
+            }
+        </ul>
+    }
+</div>

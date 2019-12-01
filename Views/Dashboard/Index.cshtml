@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model List<Wedding>
+
+<h1 class = "col-10 d-inline-block align-bottom">Welcome to the Wedding Planner</h1>
+<a asp-controller="Dashboard" asp-action="LogOut">Log Out</a>
+<table class = "table table-bordered table-striped">
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guest</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @foreach(Wedding wed in Model)
+        {
+            int reserve = 1;
+            @if(@ViewBag.UserId == wed.UserId){
+                reserve = 2;
+            }
+            else {
+                foreach(RSVP res in @wed.Reservations) {
+                    if (@ViewBag.UserId == res.UserId) {
+                        reserve = 3;
+                    }
+                }
+            }
+            <tr>
+                <td><a href = "Dashboard/wedding/@wed.WeddingId">@wed.HappyCouple</a></td>
+                <td>@wed.WDate.ToString("MMMM dd, yyyy")</td>
+                    @if (@wed.Reservations == null) {
+                        <td>0</td>
+                    }
+                    else {
+                        <td>@wed.Reservations.Count</td>
+                    }
+                <td>
+                    @switch (reserve)
+                    {
+                        case 1:
+                            <a href = "Dashboard/reserve/@wed.WeddingId">RSVP</a>
+                            break;
+                        case 2:
+                            <a href = "Dashboard/delete/@wed.WeddingId">Delete</a>
+                            break;
+                        default:
+                            <a href = "Dashboard/unreserve/@wed.WeddingId">Un-RSVP</a>
+                            break;
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href = "Dashboard/wedding/new" class = "btn btn-primary col-2 offset-10 shadow">New Wedding</a>

@@ -1,0 +1,29 @@
+@model User
+<form asp-action="Register" asp-controller="Home" method = "post">
+    <div class="form-group">
+        <span asp-validation-for="FirstName" class = "d-block text-danger"></span>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class = "form-control col-6">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="LastName" class = "d-block text-danger"></span>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class = "form-control col-6">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Email" class = "d-block text-danger"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class = "form-control col-6">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Password" class = "d-block text-danger"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class = "form-control col-6">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="ConfirmPW" class = "d-block text-danger"></span>
+        <label asp-for="ConfirmPW"></label>
+        <input asp-for="ConfirmPW" class = "form-control col-6">
+    </div>
+    <button type = "submit" class = "btn btn-primary mt-2">Register</button>
+</form>

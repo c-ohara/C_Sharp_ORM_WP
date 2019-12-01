@@ -1,0 +1,14 @@
+@model Login
+<form asp-action = "Login" asp-controller="Home" method = "post">
+    <div class="form-group">
+        <span asp-validation-for="EmailAttempt" class = "d-block text-danger"></span>
+        <label asp-for="EmailAttempt"></label>
+        <input asp-for="EmailAttempt" class = "form-control">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="PasswordAttempt" class = "d-block text-danger"></span>
+        <label asp-for="PasswordAttempt"></label>
+        <input asp-for="PasswordAttempt" class = "form-control">
+    </div>
+    <button type = "submit" class = "btn btn-primary mt-2">Log in</button>
+</form>

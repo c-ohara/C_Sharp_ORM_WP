@@ -1,0 +1,28 @@
+@model Wedding
+<h1 class = "col-6 d-inline-block align-bottom">Plan Your Wedding</h1>
+<a href = "/dashboard" class = "col-2">Dashboard</a>
+<a href = "/logout">Log Out</a>
+<form asp-action="AddWedding" asp-controller="Dashboard" method = "post">
+    <input type = "hidden" Name = "UserId" value="@ViewBag.CurrentUser.UserId">
+    <div class="form-inline mt-2">
+        <span asp-validation-for="WedderOne" class = "d-block text-danger"></span>
+        <label asp-for="WedderOne" class = "col-4"></label>
+        <input asp-for="WedderOne" class = "form-control col-6">
+    </div>
+    <div class="form-inline mt-2">
+        <span asp-validation-for="WedderTwo" class = "d-block text-danger"></span>
+        <label asp-for="WedderTwo" class = "col-4"></label>
+        <input asp-for="WedderTwo" class = "form-control col-6">
+    </div>
+    <div class="form-inline mt-2">
+        <span asp-validation-for="WDate" class = "d-block text-danger"></span>
+        <label asp-for="WDate" class = "col-4"></label>
+        <input asp-for="WDate" class = "form-control col-6">
+    </div>
+    <div class="form-inline mt-2">
+        <span asp-validation-for="Address" class = "d-block text-danger"></span>
+        <label asp-for="Address" class = "col-4"></label>
+        <input asp-for="Address" class = "form-control col-6">
+    </div>
+    <button type = "submit" class = "btn btn-primary mt-2">Create</button>
+</form>
