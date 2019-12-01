@@ -1,5 +1,7 @@
 # C_Sharp_ORM_WP
-# Create a root file called "appsettings.json" and add the following:
+
+
+Create a root file called "appsettings.json" and add the following:
 
 {
   "DBInfo":
